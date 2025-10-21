@@ -1,11 +1,17 @@
 import { useState } from "react";
 import Login from "../pages/Auth/Login";
 import useAuth from "../hooks/useAuth";
-import { User, LogOut, LogIn, X } from "lucide-react"; // optional icons
+import { User, LogOut, LogIn, X } from "lucide-react";
 
 export default function Header() {
   const { user, logout } = useAuth();
   const [showLogin, setShowLogin] = useState(false);
+
+  // Optional: handle loading state if user is being fetched
+  const isUserReady = user && (user.name || user.data?.name);
+
+  // Get user name safely (handles nested data or missing name)
+  const userName = user?.name || user?.data?.name || "Guest";
 
   return (
     <>
@@ -23,19 +29,21 @@ export default function Header() {
                 />
               </div>
               <div className="flex flex-col justify-center mt-2">
-                <h5 className="text-xl font-bold text-gray-900">My React + Laravel App</h5>
+                <h5 className="text-xl font-bold text-gray-900">
+                  My React + Laravel App
+                </h5>
               </div>
             </div>
 
             {/* Right Side */}
-            {user ? (
+            {isUserReady ? (
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3 bg-gray-50 hover:bg-gray-100 px-4 py-2 rounded-xl transition-all cursor-pointer group">
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
-                    {user.name.charAt(0).toUpperCase()}
+                    {userName.charAt(0).toUpperCase()}
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium text-gray-900">{user.name}</span>
+                    <span className="text-sm font-medium text-gray-900">{userName}</span>
                     <span className="text-xs text-gray-500">Welcome back!</span>
                   </div>
                 </div>
@@ -67,19 +75,15 @@ export default function Header() {
             <div className="absolute top-3 right-3 z-10">
               <button
                 onClick={() => setShowLogin(false)}
-                className=" text-black rounded-full p-1.5 hover:bg-red-600 transition"
+                className="text-black rounded-full p-1.5 hover:bg-red-600 transition"
               >
                 <X size={18} />
               </button>
             </div>
             <Login />
           </div>
-
         </div>
       )}
-
-
     </>
   );
 }
-
