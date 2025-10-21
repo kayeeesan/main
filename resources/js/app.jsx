@@ -1,5 +1,9 @@
 import './bootstrap';
 import Header from './components/Header';
+import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap styles
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // JS (for dropdowns, modals, etc.)
+import "../css/app.css";
+
 
 export default function App() {
   return (
