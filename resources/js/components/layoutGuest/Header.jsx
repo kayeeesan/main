@@ -19,7 +19,7 @@ export default function HeaderGuest() {
                 className="w-8 h-8 rounded-full border-2 border-blue-600"
               />
               <div className="flex items-center gap-2 text-gray-600">
-                  <span className="text-sm font-medium">KAYE</span>
+                  <span className="text-l font-medium">KAYE</span>
                 </div>
             </div>
 

@@ -3,7 +3,7 @@
 export default function Form() {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">Users</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">User Management</h2>
 
     </div>
   );

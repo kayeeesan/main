@@ -61,10 +61,9 @@ export default function Sidebar({ isCollapsed, onToggle }) {
             />
             {!isCollapsed && (
               <div className="min-w-0 flex-1">
-                <h5 className="font-semibold text-sm leading-tight truncate">
+                <h5 className="font-semibold text-sm leading-tight truncate pt-2">
                   My React App
                 </h5>
-                <p className="text-xs opacity-80 truncate">Admin Dashboard</p>
               </div>
             )}
           </div>
