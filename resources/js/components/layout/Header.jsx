@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Login from "../../pages/Auth/Login";
-import useAuth from "../../hooks/useAuth";
+import Login from "../../pages/auth/Login.jsx";
+import useAuth from "../../hooks/useAuth.js";
 import { User, LogOut, LogIn, X, Menu } from "lucide-react";
 
 export default function Header({ onToggleSidebar, isSidebarCollapsed }) {
@@ -33,8 +33,9 @@ export default function Header({ onToggleSidebar, isSidebarCollapsed }) {
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-sm font-semibold shadow-sm">
                     {userName.charAt(0).toUpperCase()}
                   </div>
-                  <div>
-                  <span className="text-sm font-medium">Welcome, {userName}</span>
+                  <div className="hidden sm:block">
+                    <p className="text-sm font-medium text-gray-900">Welcome back</p>
+                    <p className="text-xs text-gray-500">{userName}</p>
                   </div>
                 </div>
               ) : (
