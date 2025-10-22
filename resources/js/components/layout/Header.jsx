@@ -34,8 +34,7 @@ export default function Header({ onToggleSidebar, isSidebarCollapsed }) {
                     {userName.charAt(0).toUpperCase()}
                   </div>
                   <div className="hidden sm:block">
-                    <p className="text-sm font-medium text-gray-900">Welcome back</p>
-                    <p className="text-xs text-gray-500">{userName}</p>
+                     <span className="text-sm font-medium">Hello, {userName}</span>
                   </div>
                 </div>
               ) : (
