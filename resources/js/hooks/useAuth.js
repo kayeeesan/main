@@ -44,6 +44,7 @@ export default function useAuth() {
                 localStorage.setItem("token", res.data.token);
 
                 Swal.fire("Welcome!", "Login successful", "success");
+                navigate("/dashboard", { replace: true });
                 window.location.reload();
             }
         } catch (err) {

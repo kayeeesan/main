@@ -13,7 +13,7 @@ export default function Sidebar({ isCollapsed, onToggle }) {
   const location = useLocation();
 
   const navItems = [
-    { name: "Dashboard", icon: <Home size={20} />, path: "/" },
+    { name: "Dashboard", icon: <Home size={20} />, path: "/dashboard" },
     { name: "Reports", icon: <BarChart2 size={20} />, path: "/reports" },
     {
       name: "Settings",
