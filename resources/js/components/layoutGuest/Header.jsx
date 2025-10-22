@@ -18,12 +18,9 @@ export default function HeaderGuest() {
                 alt="App Logo"
                 className="w-8 h-8 rounded-full border-2 border-blue-600"
               />
-              <div>
-                <h1 className="text-sm font-semibold text-gray-800">
-                  Welcome to My React App
-                </h1>
-                <p className="text-xs text-gray-500">Guest Mode</p>
-              </div>
+              <div className="flex items-center gap-2 text-gray-600">
+                  <span className="text-sm font-medium">KAYE</span>
+                </div>
             </div>
 
             {/* Right Side - Sign In */}
