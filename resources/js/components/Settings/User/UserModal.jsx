@@ -42,17 +42,7 @@ export default function UserModal({ isOpen, onClose, onSubmit, editingUser, load
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Basic validation
     const newErrors = {};
-    if (!form.name.trim()) newErrors.name = "Name is required";
-    if (!form.email.trim()) newErrors.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = "Email is invalid";
-    
-    if (!editingUser) {
-      if (!form.password) newErrors.password = "Password is required";
-      else if (form.password.length < 8) newErrors.password = "Password must be at least 8 characters";
-      else if (form.password !== form.password_confirmation) newErrors.password_confirmation = "Passwords do not match";
-    }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
