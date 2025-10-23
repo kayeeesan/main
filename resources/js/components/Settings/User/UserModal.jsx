@@ -33,7 +33,6 @@ export default function UserModal({ isOpen, onClose, onSubmit, editingUser, load
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: "" }));
     }

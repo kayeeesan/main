@@ -1,7 +1,7 @@
 import useUser from "../../hooks/useUser";
 import { useState } from "react";
 import Table from "../../components/Settings/User/Table";
-import UserModal from "../../components/Settings/User/UserModal";
+import UserModal from "../../components/Settings/User/UserModal.Jsx";
 
 export default function Form() {
   const { 
@@ -12,7 +12,7 @@ export default function Form() {
     handleSubmit, 
     handleDelete, 
     handlePageChange 
-  } = useUser(); // ✅ destructure handlePageChange
+  } = useUser(); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
 
@@ -40,7 +40,7 @@ export default function Form() {
           setIsModalOpen(true);
         }}
         onDelete={handleDelete}
-        onPageChange={handlePageChange} // ✅ <--- ADD THIS
+        onPageChange={handlePageChange} 
       />
 
       {isModalOpen && (
