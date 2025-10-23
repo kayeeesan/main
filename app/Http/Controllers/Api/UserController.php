@@ -47,7 +47,16 @@ class UserController extends Controller
     {
         try {
             $user = User::where('uuid', $uuid)->firstOrFail();
-            $user->update($request->validated());
+
+            $data = $request->validated();
+
+            if (!empty($data['password'])) {
+                $data['password'] = Hash::make($data['password']);
+            } else {
+                unset($data['password']);
+            }
+
+            $user->update($data);
 
             return response()->json([
                 'message' => 'User updated successfully',
