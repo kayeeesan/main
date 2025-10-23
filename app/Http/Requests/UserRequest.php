@@ -28,6 +28,7 @@ class UserRequest extends FormRequest
                     'email',
                     Rule::unique('users', 'email')->ignore($this->route('uuid'), 'uuid'),
                 ],
+                'password' => 'nullable|string|min:8|confirmed',
             ];
         }
     }
