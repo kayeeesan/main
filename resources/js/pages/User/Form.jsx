@@ -4,7 +4,15 @@ import Table from "../../components/Settings/User/Table";
 import UserModal from "../../components/Settings/User/UserModal";
 
 export default function Form() {
-  const { users, loading, handleSubmit, handleDelete, fetchUsers } = useUser();
+  const { 
+    users, 
+    meta, 
+    loading, 
+    currentPage, 
+    handleSubmit, 
+    handleDelete, 
+    handlePageChange 
+  } = useUser(); // ✅ destructure handlePageChange
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
 
@@ -24,19 +32,24 @@ export default function Form() {
 
       <Table
         users={users}
+        meta={meta}
         loading={loading}
+        currentPage={currentPage}
         onEdit={(user) => {
           setEditingUser(user);
           setIsModalOpen(true);
         }}
         onDelete={handleDelete}
+        onPageChange={handlePageChange} // ✅ <--- ADD THIS
       />
 
       {isModalOpen && (
         <UserModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          onSubmit={(formData) => handleSubmit(formData, editingUser, () => setIsModalOpen(false))}
+          onSubmit={(formData) =>
+            handleSubmit(formData, editingUser, () => setIsModalOpen(false))
+          }
           editingUser={editingUser}
         />
       )}
